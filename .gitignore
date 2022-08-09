@@ -1,6 +1,0 @@
-uploads/*
-!uploads/.gitkeep
-ai1wm-backups/
-plugins/all-in-one-wp-migration/storage/
-.npmrc
-ewww
