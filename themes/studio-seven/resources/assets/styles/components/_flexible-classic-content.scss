@@ -1,7 +1,21 @@
 @use "../config" as *;
 
-.f-classic-content {
+.c-classic-content {
   margin: 10px 0;
 
-  @include media-breakpoint-up(xl) { margin: 0; }
+  @include media-breakpoint-up(lg) {
+    margin-bottom: -75px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(lg) {
+      margin-left: calc(#{$column-width} * -3);
+    }
+
+    h1 {
+      @include f86;
+    }
+  }
 }

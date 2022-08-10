@@ -3,7 +3,7 @@
   Description: Une ou deux colonnes : contenu / médias
   Category: template-blocks
   Icon: columns
-  Post-Type: post page
+  Post-Type: post page projects
   Keywords: contenu colonnes flexible image vidéo média
 --}}
 
@@ -13,14 +13,18 @@
 
 <section class="b-flexible-content">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row align-items-end">
       @foreach ($data['components'] as $component)
         @php
-          $col = 'col-xl-9 offset-md-2';
-
-          if (count($data['components']) === 1) $col = $component['name'] === 'flexible-classic-content' ? 'col-xl-14 offset-xl-5 offset-md-2' : 'offset-md-2';
+          if (count($data['components']) > 1) {
+            if ($component['name'] === 'flexible-classic-content') {
+              $col = "col-lg-9 u-z1";
+            } else {
+              $col = "col-lg-11 u-z0";
+            }
+          }
         @endphp
-        <div class="col-md-20 {{ $col }} @if($loop->index === 0 && $component['name'] === 'flexible-classic-content'){{ 'u-o1' }}@endif">
+        <div class="col-22 {{ $col }} offset-1">
           @include('components/' . $component['name'], ['data' => $component['data']])
         </div>
       @endforeach

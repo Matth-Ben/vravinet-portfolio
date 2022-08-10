@@ -1,5 +1,130 @@
 @use "../config" as *;
 
 .header {
+  padding: 50px 0;
+  overflow-x: clip;
   z-index: $z-header;
+
+  &__toggler {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-right: 10px;
+    cursor: pointer;
+    z-index: 2;
+
+    @include media-breakpoint-up(lg) { display: none; }
+
+    span,
+    div {
+      width: 23px;
+      height: 3px;
+      background-color: $black;
+    }
+
+    span {
+      display: block;
+      transform: scaleX(1);
+      transform-origin: right;
+      transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms + 500ms);
+
+      &:not(:first-child) { margin-top: 5px; }
+    }
+
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg) scaleX(0);
+      transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms);
+
+      &:last-child { transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); }
+    }
+
+    &.open {
+      span {
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms);
+      }
+
+      div {
+        transform: translate(-50%, -50%) rotate(45deg) scaleX(1);
+        transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms + 500ms);
+
+        &:last-child { transform: translate(-50%, -50%) rotate(-45deg) scaleX(1); }
+      }
+    }
+  }
+
+  &__page {
+    &-name {
+      display: none;
+      color: $black;
+
+      @include f24;
+
+      @include media-breakpoint-up(lg) { display: block; }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &-logo {
+      position: relative;
+      color: $black;
+
+      @include f24;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: -20px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background: $primary;
+      }
+    }
+
+    &-menu {
+      @include media-breakpoint-down(lg) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        height: calc(70vh - 140px);
+        background: $white;
+        z-index: 1;
+      }
+
+      &__item {
+        display: inline-block;
+        margin: 25px auto;
+
+        @include media-breakpoint-up(lg) {
+          margin: auto 10px;
+
+          &:first-child { margin-left: 0; }
+          &:last-child { margin-right: 0; }
+        }
+
+        &-link {
+          color: $black;
+          font-family: $font-heading;
+
+          @include f24;
+        }
+      }
+    }
+  }
 }

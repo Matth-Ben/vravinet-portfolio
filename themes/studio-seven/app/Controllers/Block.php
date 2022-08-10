@@ -29,5 +29,30 @@ class Block extends Controller {
     ];
   }
 
+  public static function listLink($data) {
+    for ($i = 0; $i < $data['b-ll-repeater'] ; $i++) {
+      $links[] = [
+        'link' => Element::link($data['b-ll-repeater_'.$i.'_link'])
+      ];
+    }
+
+    return [
+      'title' => $data['b-ll-title'],
+      'links' => $links
+    ];
+  }
+
+  public static function gallery($data) {
+    foreach ($data['b-gallery'] as $value) {
+      $gallery[] = [
+        'image' => Element::image($value, '1920px')
+      ];
+    }
+
+    return [
+      'gallery' => $gallery,
+    ];
+  }
+
   // generated function here
 }

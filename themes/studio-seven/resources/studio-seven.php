@@ -137,7 +137,6 @@ function toCamelCase($string) {
 * Add menu location
 */
 function wpb_custom_new_menu() {
-    register_nav_menu('footer_navigation',__( 'Footer' ));
 }
 add_action( 'init', 'wpb_custom_new_menu' );
 
@@ -182,3 +181,28 @@ function dc_enable_gutenberg_post_ids($can_edit, $post) {
 }
 
 add_filter('use_block_editor_for_post', 'dc_enable_gutenberg_post_ids', 10, 2);
+
+// ************* Remove default Posts type since no blog *************
+
+// Remove side menu
+add_action( 'admin_menu', 'remove_default_post_type' );
+
+function remove_default_post_type() {
+    remove_menu_page( 'edit.php' );
+}
+
+// Remove +New post in top Admin Menu Bar
+add_action( 'admin_bar_menu', 'remove_default_post_type_menu_bar', 999 );
+
+function remove_default_post_type_menu_bar( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'new-post' );
+}
+
+// Remove Quick Draft Dashboard Widget
+add_action( 'wp_dashboard_setup', 'remove_draft_widget', 999 );
+
+function remove_draft_widget(){
+    remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+}
+
+// End remove post type

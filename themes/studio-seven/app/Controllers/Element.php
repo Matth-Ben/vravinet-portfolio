@@ -49,4 +49,12 @@ class Element extends Controller {
       'hn' => $data['hn']
     ];
   }
+
+  public static function link($data) {
+    return [
+      'title' => $data['title'],
+      'url' => $data['url'],
+      'target' => $data['target'],
+    ];
+  }
 }
