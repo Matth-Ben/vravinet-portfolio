@@ -1,0 +1,38 @@
+@use "../config" as *;
+
+.b-list-link {
+  &__title {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+
+    @include f86;
+  }
+
+  &__list {
+    border-top: 1px solid $black;
+  }
+
+  &__item {
+    margin-top: 25px;
+    text-transform: uppercase;
+
+    @include f24;
+
+    a {
+      position: relative;
+      color: $black;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        right: -35px;
+        background: url("../images/svg/arrow.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
