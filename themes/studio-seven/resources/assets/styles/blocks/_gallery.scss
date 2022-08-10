@@ -1,0 +1,27 @@
+.b-gallery {
+  padding: 0;
+
+  &__item {
+    margin: 100px auto;
+
+    &:first-child,
+    &:last-child { margin-top: 0; }
+  }
+
+  &__preview {
+    position: sticky;
+    top: 0;
+
+    &-wrapper {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    &-item {
+      margin: 10px auto;
+
+      &:first-child,
+      &:last-child { margin-top: 0; }
+    }
+  }
+}
