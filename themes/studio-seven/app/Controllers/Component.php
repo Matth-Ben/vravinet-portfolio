@@ -34,4 +34,12 @@ class Component extends Controller {
       ]
     ];
   }
+
+  public static function project($id) {
+    return [
+      'title' => get_the_title($id),
+      'url' => get_post_permalink($id),
+      'thumbnail' => Element::image(get_post_thumbnail_id($id), '1920px'),
+    ];
+  }
 }

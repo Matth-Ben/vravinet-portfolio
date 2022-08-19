@@ -1,0 +1,96 @@
+@use "../config" as *;
+
+.c-card-project {
+  display: flex;
+  justify-content: center;
+
+  @include media-breakpoint-up(lg) { justify-content: start; }
+
+  &__link {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: auto $column-width;
+
+    @include media-breakpoint-up(lg) {
+      width: 250px;
+      height: 70vh;
+      margin: auto;
+      overflow: hidden;
+      transition: width 1s $ease-out;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        width: 375px;
+
+        .c-card-project {
+          &__thumbnail {
+            &::after { opacity: 0.6; }
+          }
+
+          &__title {
+            &-content {
+              h2 {
+                transform: translateY(0);
+                transition-delay: 0.4s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__thumbnail {
+    position: relative;
+    height: 100%;
+
+    .image {
+      height: 100%;
+
+      img { height: 70vh; }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $primary;
+      opacity: 0;
+      transition: opacity 1s $ease-out;
+    }
+  }
+
+  &__title {
+    margin: 25px auto 75px;
+    color: $black;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      bottom: 60px;
+      left: 15%;
+      width: 70%;
+      margin: auto;
+      color: $white;
+      text-align: left;
+
+      &-content {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        overflow: hidden;
+
+        h2 {
+          transform: translateY(100%);
+          transition: transform 1s $ease-out;
+          transition-delay: 0;
+        }
+      }
+    }
+  }
+}
