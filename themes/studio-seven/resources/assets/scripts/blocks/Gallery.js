@@ -14,21 +14,17 @@ export default class Gallery extends Block {
   }
 
   getElems() {
-    this.list = this.el.querySelector('.b-gallery__list')
-    this.listWrapper = this.list.querySelector('.b-gallery__list-wrapper')
     this.preview = this.el.querySelector('.b-gallery__preview')
     this.previewWrapper = this.preview.querySelector('.b-gallery__preview-wrapper')
-    // this.poster = this.el.querySelector('.c-video__poster')
-    // this.playButton = this.el.querySelector('.c-video__play')
   }
 
   init() {
     gsap.set(this.listWrapper, {
-      yPercent: 0
+      y: 0 + 'px'
     })
 
     gsap.set(this.previewWrapper, {
-      yPercent: 0
+      y: 0 + 'px'
     })
   }
 
@@ -38,11 +34,11 @@ export default class Gallery extends Block {
       this.newValue = window.pageYOffset
       if (this.oldValue < this.newValue) {
         this.oldTransform = this.transform
-        this.transform -= 0.2
+        this.transform -= 1
         this.scroll.bind(this)
       } else if (this.oldValue > this.newValue) {
         this.oldTransform = this.transform
-        this.transform += 0.2
+        this.transform += 1
         this.scroll.bind(this)
       }
       this.oldValue = this.newValue
@@ -50,10 +46,10 @@ export default class Gallery extends Block {
   }
 
   scroll() {
-    gsap.fromTo(this.listWrapper, {
-      yPercent: this.oldTransform
+    gsap.fromTo(this.previewWrapper, {
+      y: this.oldTransform + 'px'
     }, {
-      yPercent: this.transform,
+      y: this.transform + 'px',
       duration: 0.6,
       ease: 'expo.out'
     })
