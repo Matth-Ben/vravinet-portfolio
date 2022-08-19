@@ -1,3 +1,15 @@
+@use "./breakpoints" as *;
+
+@mixin f128 {
+  font-size: 86px;
+  line-height: 104px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 128px;
+    line-height: 155px;
+  }
+}
+
 @mixin f86 {
   font-size: 86px;
   line-height: 104px;

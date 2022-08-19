@@ -1,0 +1,15 @@
+@use "../config" as *;
+
+.home {
+  &__title {
+    display: contents;
+    text-align: center;
+    overflow-wrap: break-word;
+
+    h1 {
+      font-weight: 400;
+
+      @include f128;
+    }
+  }
+}
