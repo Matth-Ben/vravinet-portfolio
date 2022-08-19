@@ -1,0 +1,28 @@
+@use "../config" as *;
+
+.project {
+  @include media-breakpoint-up(lg) { height: 100vh; }
+
+  &__list {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      height: 100%;
+      overflow-x: hidden;
+    }
+  }
+
+  &__item {
+    @include media-breakpoint-up(lg) {
+      &:first-child { margin-left: 60px; }
+      &:last-child { margin-right: 60px; }
+    }
+  }
+}
+
+.template-projects {
+  @include media-breakpoint-up(lg) {
+    height: 100vh;
+  }
+}
