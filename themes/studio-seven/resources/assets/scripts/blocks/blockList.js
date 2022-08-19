@@ -18,6 +18,10 @@ const blockList = [
     name: 'b-gallery',
     fileName: 'Gallery',
     mobile: false
+  },
+  {
+    name: 'project__list',
+    fileName: 'ListProject'
   }/* generated class */
 ]
 

@@ -55,7 +55,7 @@ export default class Gallery extends Block {
     }, {
       yPercent: this.transform,
       duration: 0.6,
-      ease: 'expo.out',
+      ease: 'expo.out'
     })
   }
 }
