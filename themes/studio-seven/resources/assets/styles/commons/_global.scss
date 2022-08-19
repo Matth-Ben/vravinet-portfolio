@@ -10,6 +10,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .container-fluid { width: 100vw; }
 
 html {
@@ -27,11 +33,10 @@ section {
 
   @include media-breakpoint-up(xl) { padding: 100px 0; }
 
-  &:first-child { padding-top: 0; }
+  &:first-child { padding-top: 130px; }
 }
 
 * { box-sizing: border-box; }
-[data-router-view] { min-height: 100vh; }
 
 .b-gutenberg {
   &:first-child {
