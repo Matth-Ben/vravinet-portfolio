@@ -7,7 +7,7 @@ const blockList = [
     // hasMobileBlock: false
   },
   {
-    name: 'c-video',
+    name: 'f-media--video',
     fileName: 'Video'
   },
   {

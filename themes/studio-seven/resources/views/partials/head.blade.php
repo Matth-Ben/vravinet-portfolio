@@ -61,6 +61,8 @@
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('{{ get_home_url() }}/wp-content/themes/studio-seven/service-worker.js');
   </script>
 
+  <script src="https://www.youtube.com/iframe_api" async ></script>
+
   @php wp_head() @endphp
 
   @if ($gtm)

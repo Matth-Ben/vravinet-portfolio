@@ -27,8 +27,7 @@ class Component extends Controller {
         'media' => $data['media'],
         'image' => isset($data['image']) && !empty($data['image']) ? Element::image($data['image'], '50vw', NULL, true) : NULL,
         'video' => [
-          'type' => isset($data['video']) && !empty($data['video']) ? get_post_mime_type($data['video']) : NULL,
-          'video' => isset($data['video']) && !empty($data['video']) ? wp_get_attachment_url($data['video']) : NULL,
+          'video' => $data['video'],
           'poster' => isset($data['image']) && !empty($data['image']) ? Element::image($data['image'], '50vw') : NULL
         ]
       ]
