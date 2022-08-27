@@ -55,3 +55,11 @@ section {
     @include media-breakpoint-up(xl) { margin-bottom: 150px; }
   }
 }
+
+.header__page-name {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+}

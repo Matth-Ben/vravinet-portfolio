@@ -11,6 +11,7 @@
 
 @section('content')
   <div class="project" data-router-view="page">
+    <div class="header__page-name">{!! get_the_title() !!}</div>
     <div class="project__list">
       @while($loop->have_posts()) @php ($loop->the_post()) @endphp
         <div class="project__item">

@@ -15,9 +15,6 @@
             <div style="--transition-order: 0"></div>
             <div style="--transition-order: 1"></div>
           </div>
-          @if (!is_front_page())
-            <div class="header__page-name">{!! get_the_title() !!}</div>
-          @endif
           <div class="header__nav-menu">
             @foreach ($GLOBALS['navigation']['primary_navigation'] as $item)
               <div class="header__nav-menu__item">
