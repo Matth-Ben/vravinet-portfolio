@@ -20,6 +20,9 @@ import Page from './routes/Page'
 // Transitions
 import Fade from './transitions/Fade'
 
+// WebGL
+import GL from './util/GalleryVertical/webgl'
+
 export default class App {
 
   /**
@@ -88,6 +91,9 @@ export default class App {
         if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll && store.smoothScroll.update()
         this.checkAnchor()
       })
+
+      this.webGlWrapper = document.querySelector('.webGlGalleryVertical')
+      this.webGl = new GL(this.webGlWrapper)
     })
   }
 
