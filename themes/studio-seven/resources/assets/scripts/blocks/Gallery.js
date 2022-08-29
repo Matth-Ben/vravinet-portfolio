@@ -16,6 +16,7 @@ export default class Gallery extends Block {
   getElems() {
     this.preview = this.el.querySelector('.b-gallery__preview')
     this.previewWrapper = this.preview.querySelector('.b-gallery__preview-wrapper')
+    this.listWrapper = this.el.querySelector('.b-gallery__list-wrapper')
   }
 
   init() {
@@ -26,19 +27,25 @@ export default class Gallery extends Block {
     gsap.set(this.previewWrapper, {
       y: 0 + 'px'
     })
+
+    this.maxHeightPreview = this.previewWrapper.offsetHeight
+    this.maxHeightList = this.listWrapper.offsetHeight
   }
 
   events() {
     // this.playButton && this.playButton.addEventListener('click', this.onPlayClick.bind(this))
     document.addEventListener('scroll', () => {
       this.newValue = window.pageYOffset
+
       if (this.oldValue < this.newValue) {
+        console.log('up')
         this.oldTransform = this.transform
-        this.transform -= 1
+        this.transform -= 5
         this.scroll.bind(this)
       } else if (this.oldValue > this.newValue) {
+        console.log('down')
         this.oldTransform = this.transform
-        this.transform += 1
+        this.transform += 5
         this.scroll.bind(this)
       }
       this.oldValue = this.newValue

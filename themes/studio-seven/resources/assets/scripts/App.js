@@ -21,7 +21,7 @@ import Page from './routes/Page'
 import Fade from './transitions/Fade'
 
 // WebGL
-import GL from './util/GalleryVertical/webgl'
+// import GL from './util/GalleryVertical/webgl'
 
 export default class App {
 
@@ -78,7 +78,7 @@ export default class App {
       this.events()
       this.update()
 
-      if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+      // if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
       window.scrollTo(0, 0)
 
@@ -92,8 +92,8 @@ export default class App {
         this.checkAnchor()
       })
 
-      this.webGlWrapper = document.querySelector('.webGlGalleryVertical')
-      this.webGl = new GL(this.webGlWrapper)
+      // this.webGlWrapper = document.querySelector('.webGlGalleryVertical')
+      // this.webGl = new GL(this.webGlWrapper)
     })
   }
 
@@ -198,6 +198,8 @@ export default class App {
         document.title = renderer.properties.page.title
       })
 
+      this.menu.onPageChange(location)
+
       this.lazyLoad.update()
     })
 
@@ -212,7 +214,7 @@ export default class App {
       this.checkAnchor(location)
       listen({ el: to.view })
 
-      if (!store.scrollEngine) store.observer.unobserve()
+      // if (!store.scrollEngine) store.observer.unobserve()
 
       this.detachAdminBarLinks(to)
     })

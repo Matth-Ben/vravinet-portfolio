@@ -76,6 +76,11 @@ class App extends Controller {
         'clientId' => get_option('clientid'),
         'userId' => get_option('userid'),
         'accessToken' => get_option('accesstoken')
+      ],
+      'header' => [
+        'image_menu' => Element::image($options['image_header']['ID'], '1920px'),
+        'contact' => $options['email_header'],
+        'insta' => $options['insta_header'],
       ]
     ];
   }
