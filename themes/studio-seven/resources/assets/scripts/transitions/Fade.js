@@ -23,9 +23,9 @@ export default class Fade extends BaseTransition {
 
       tl.to(store.panel, {
         opacity: 0,
-        duration: 0.35,
+        duration: 0.6,
         ease: 'power3.out'
-      }, 0)
+      }, 1)
     })
   }
 
@@ -33,7 +33,7 @@ export default class Fade extends BaseTransition {
     return new Promise((resolve) => {
       gsap.to(store.panel, {
         opacity: 1,
-        duration: 0.35,
+        duration: 0.6,
         ease: 'power3.out',
         onComplete: () => {
           resolve()

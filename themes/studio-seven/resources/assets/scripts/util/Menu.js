@@ -14,7 +14,7 @@ export default class Menu {
       this.onPageChange({ href: window.location.href })
     }, 200)
   }
-
+ 
   bindMethods() {
     this.toggle = this.toggle.bind(this)
   }
@@ -39,14 +39,14 @@ export default class Menu {
       }
     })
 
-    if (window.innerWidth < 1200) {
+    if (window.innerWidth < 1024) {
       tl.to(this.$menu, {
         xPercent: 100,
         opacity: 0
       })
       tl.to(this.$menuItems, {
-        yPercent: 100,
-        opacity: 0
+        opacity: 0,
+        yPercent: 100
       })
       tl.to(this.$image, {
         xPercent: 100,
@@ -60,14 +60,16 @@ export default class Menu {
   }
 
   onPageChange(location) {
-    this.close()
+    if (window.innerWidth < 1024) {
+      this.menuOpen && this.close()
 
-    this.$menuItems.forEach((item) => {
-      item.classList.contains('actif') && item.classList.remove('actif')
-      if (item.href === location.href) {
-        item.classList.add('actif')
-      }
-    })
+      this.$menuItems.forEach((item) => {
+        item.classList.contains('actif') && item.classList.remove('actif')
+        if (item.href === location.href) {
+          item.classList.add('actif')
+        }
+      })
+    }
   }
 
   toggle() {
@@ -200,6 +202,7 @@ export default class Menu {
   scroll() {
     if (this.$header.querySelector('.active') !== null) {
       this.$header.querySelector('.active').hover = false
+      this.close()
     }
   }
 }

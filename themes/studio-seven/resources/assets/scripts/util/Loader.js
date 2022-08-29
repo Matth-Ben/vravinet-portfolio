@@ -22,7 +22,7 @@ export default class Loader {
         opacity: 0,
         duration: 0.6,
         ease: 'power3.out'
-      })
+      }, 2)
     })
   }
 }
