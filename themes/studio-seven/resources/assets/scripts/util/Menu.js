@@ -14,13 +14,14 @@ export default class Menu {
       this.onPageChange({ href: window.location.href })
     }, 200)
   }
- 
+
   bindMethods() {
     this.toggle = this.toggle.bind(this)
   }
 
   getElems() {
     this.$header = document.querySelector('.header')
+    this.$logo = document.querySelector('.header__nav-logo a')
     this.$menu = this.$header.querySelector('.header__nav-menu')
     this.$menuItems = this.$menu.querySelectorAll('.header__nav-menu__item')
     this.$image = this.$menu.querySelector('.header__nav-menu__image')
@@ -40,6 +41,9 @@ export default class Menu {
     })
 
     if (window.innerWidth < 1024) {
+      tl.to(this.$logo, {
+        color: '#1c2026'
+      })
       tl.to(this.$menu, {
         xPercent: 100,
         opacity: 0
@@ -100,16 +104,13 @@ export default class Menu {
         ease: 'power1.out'
       }, 'start')
 
-      tl.fromTo(this.$contact, {
-        yPercent: 100,
-        opacity: 0
+      tl.fromTo(this.$logo, {
+        color: '#1c2026'
       }, {
-        yPercent: 0,
+        color: '#fff',
         duration: 0.6,
-        opacity: 1,
-        stagger: 0.125,
         ease: 'power1.out'
-      })
+      }, 'start')
 
       tl.fromTo(this.$menuItems, {
         yPercent: 100,
@@ -127,6 +128,17 @@ export default class Menu {
         opacity: 0
       }, {
         xPercent: 0,
+        duration: 0.6,
+        opacity: 1,
+        stagger: 0.125,
+        ease: 'power1.out'
+      })
+
+      tl.fromTo(this.$contact, {
+        yPercent: 100,
+        opacity: 0
+      }, {
+        yPercent: 0,
         duration: 0.6,
         opacity: 1,
         stagger: 0.125,
@@ -180,6 +192,14 @@ export default class Menu {
         stagger: 0.125,
         ease: 'power1.out'
       }, 'start')
+
+      tl.fromTo(this.$logo, {
+        color: '#fff'
+      }, {
+        color: '#1c2026',
+        duration: 0.6,
+        ease: 'power1.out'
+      })
 
       tl.fromTo(this.$menu, {
         xPercent: 0,
