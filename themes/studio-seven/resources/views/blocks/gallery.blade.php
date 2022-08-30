@@ -21,7 +21,7 @@
               <div class="b-gallery__item">
                 @include('elements/image', ['data' => $item['image']])
               </div>
-            @endforeach 
+            @endforeach
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
           <div class="b-gallery__preview-wrapper">
             @foreach ($data['gallery'] as $item)
               <div class="b-gallery__preview-item">
-                @include('elements/image', ['data' => $item['image']])
+                {{-- @include('elements/image', ['data' => $item['image']]) --}}
               </div>
             @endforeach
           </div>
