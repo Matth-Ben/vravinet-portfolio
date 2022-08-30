@@ -1,16 +1,21 @@
+@use "../config" as *;
+
 .b-gallery {
   padding: 0;
 
   &__item {
-    margin: 100px auto;
+    margin: 75px auto;
 
     &:first-child,
     &:last-child { margin-top: 0; }
   }
 
   &__preview {
+    display: none;
     position: sticky;
     top: 0;
+
+    @include media-breakpoint-up(lg) { display: block; }
 
     &-wrapper {
       height: 100vh;

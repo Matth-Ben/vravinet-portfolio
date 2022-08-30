@@ -11,8 +11,13 @@
 }
 
 @mixin f86 {
-  font-size: 86px;
-  line-height: 104px;
+  font-size: 64px;
+  line-height: 78px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 86px;
+    line-height: 104px;
+  }
 }
 
 @mixin f48 {
